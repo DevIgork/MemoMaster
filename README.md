@@ -13,7 +13,7 @@ Memo Maestro is a note management application designed to help you efficiently c
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/memo-maestro-app.git
+    git clone https://github.com/DevIgork/MemoMaster.git
     cd memo-maestro-app
     ```
 
