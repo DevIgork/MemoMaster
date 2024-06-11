@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
 
 const EditNote = ({ id, currentText, handleEditNote, handleCancelEdit }) => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const [noteRecord, setNoteRecord] = useState(currentText);
   const characterLimit = 250;
 
