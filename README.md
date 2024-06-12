@@ -27,6 +27,10 @@ Memo Maestro is a note management application designed to help you efficiently c
 - **Frontend**: [http://localhost:8081](http://localhost:8081)
 - **Backend**: [http://localhost:8080/notes](http://localhost:8080/notes)
 
+### Front End image
+
+![Memo Maestro App](https://i.imgur.com/duY41cz.png)
+
 ## Technologies Used 🧰
 
 ### Frontend
