@@ -1,5 +1,6 @@
 package org.example.memomaestro.service.impl;
 
+import ch.qos.logback.classic.spi.EventArgUtil;
 import lombok.RequiredArgsConstructor;
 import org.example.memomaestro.dto.NoteDto;
 import org.example.memomaestro.dto.NoteDtoUpdate;
@@ -10,6 +11,7 @@ import org.example.memomaestro.repository.NoteRepository;
 import org.example.memomaestro.service.NoteService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -31,7 +33,9 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public NoteDto createNote(NoteDtoUpdate note) {
-        return noteMapper.toDto(noteRepository.save(noteMapper.toModel(note)));
+        Note model = noteMapper.toModel(note);
+        model.setDate(LocalDate.now());
+        return noteMapper.toDto(noteRepository.save(model));
     }
 
     @Override
@@ -39,7 +43,7 @@ public class NoteServiceImpl implements NoteService {
         Note note = noteRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Note not found with id: " + id));
         note.setRecord(noteDto.getRecord());
-        note.setDate(noteDto.getDate());
+        note.setDate(LocalDate.now());
         return noteMapper.toDto(noteRepository.save(note));
     }
 

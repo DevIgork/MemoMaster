@@ -26,10 +26,8 @@ const App = () => {
   }, []);
 
   const addNote = (record) => {
-    const date = new Date();
     const newNote = {
       record,
-      date: date.toLocaleDateString(),
     };
     NoteService.postNote(newNote).then((note) => {
       setNotes([...notes, note]);
@@ -37,10 +35,8 @@ const App = () => {
   };
 
   const editNote = (id, updatedRecord) => {
-    const date = new Date();
     const updatedNote = {
       record: updatedRecord,
-      date: date.toLocaleDateString(),
     };
     NoteService.putNote(id, updatedNote).then((note) => {
       setNotes(notes.map((n) => (n.id === id ? note : n)));

@@ -5,7 +5,7 @@ RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn package -DskipTests
 
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk-slim
 WORKDIR /application
 COPY --from=builder /app/target/*.jar application.jar
 ENTRYPOINT ["java", "-jar", "application.jar"]

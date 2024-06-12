@@ -28,7 +28,6 @@ class NoteService {
             const response = await axios.post(
                 NOTE_REST_API_URL, {
                     record: note.record,
-                    date: note.date
                 }
             );
             return response.data;
@@ -43,7 +42,6 @@ class NoteService {
             const response = await axios.put(
                 NOTE_REST_API_URL + "/" + id, {
                     record: note.record,
-                    date: note.date  
                 }
             );
             return response.data;
